@@ -14,7 +14,7 @@
 
 <body>
     <h1><b>Lista de Funcionários</b></h1>
-
+    
     <table border="1">
         <thead>
             <tr>
@@ -23,7 +23,7 @@
                 <th>E-mail</th>
                 <th>Telefone</th>
                 <th>Ação</th>
-
+                
             </tr>
         </thead>
         <tbody>
@@ -36,17 +36,17 @@
                     <td><?=$funcionario["telefone"]?></td>
                     <td>Editar Visualizar Excluir</td>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="5"><center>Foi encontrado 6 funcionários cadastrados</center></td>
-            </tr>
-        </tfoot>
-    </table>
-    <img src="https://i.pinimg.com/originals/63/39/a5/6339a53166999b6a28561809cc70ef3e.gif">
-    <img src="https://media.tenor.com/9HIn3UQuOYcAAAAC/athousandyearsofdeath-naruto.gif">
+                <?php endforeach; ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5"><center>Foi encontrado 6 funcionários cadastrados</center></td>
+                </tr>
+            </tfoot>
+        </table>
+        <img src="https://i.pinimg.com/originals/63/39/a5/6339a53166999b6a28561809cc70ef3e.gif">
+        
+        <iframe width="560" height="400" src="https://www.youtube.com/embed/aNHFX9vZGtg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </body>
     
-</body>
-
-</html>
+    </html>

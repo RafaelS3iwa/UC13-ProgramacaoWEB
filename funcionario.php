@@ -47,4 +47,4 @@ $listaFuncionarios[$quantidadeFuncionario]["telefone"] = "(14)99857-2948";
 
 // print var_dump($listaFuncionarios);
 
-echo "<br><b>A quantidade de funcionários é: </b>" .count($listaFuncionarios);
+//echo "<br><b>A quantidade de funcionários é: </b>" .count($listaFuncionarios);
