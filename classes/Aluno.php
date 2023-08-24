@@ -10,7 +10,7 @@ class Aluno {
     private $celular; 
     private $livros = []; 
 
-    function __construct(string $nome, string $dataNascimento, string $email, string $cpf, string $telefone, string $celular){
+    function __construct(string $nome, $dataNascimento, string $email, string $cpf, string $telefone, string $celular){
         $this->nome = $nome; 
         $this->dataNascimento = $dataNascimento; 
         $this->email = $email; 
