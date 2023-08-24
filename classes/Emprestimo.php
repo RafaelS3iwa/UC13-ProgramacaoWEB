@@ -34,6 +34,22 @@ class Emprestimo {
         return count($this->aluno->getLivros()) < 4; 
     }
 
+    public function realizarEmprestimo(Aluno $aluno, Livros $livro){
+        if($livro->getDisponibilidade()){
+            $livro->emprestado();
+            $aluno->addLivros($livro); 
+        }else{
+            echo 'Livro indisponível'; 
+        }
+    }
+
+    public function devolverLivro(Aluno $aluno, Livros $livro){
+        if(!$livro->getDisponibilidade()){
+            $livro->devolvido();
+            $aluno->removerLivro($livro);
+        }
+    }
+
     public function imprimirDetalhes() { #Imprime os detalhes 
         $this->dataEmprestimo();
         

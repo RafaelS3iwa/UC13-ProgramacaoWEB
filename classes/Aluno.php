@@ -47,4 +47,15 @@ class Aluno {
     public function addLivros(Livros $livro){
         $this->livros[] = $livro; 
     }
+
+    public function mostrarQtLivroEmprestado(){
+         echo count($this->livros); 
+    }
+
+    public function removerLivro(Livros $livro){
+        $livroIndex = array_search($livro, $this->livros); 
+        if($livroIndex !== false){
+            unset($this->livros[$livroIndex]); 
+        }
+    }
 }

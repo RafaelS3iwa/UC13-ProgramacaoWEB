@@ -8,6 +8,7 @@ class Livros{
     private $numeroPagina;
     private $anoPublicacao;
     private $isbn; 
+    private $disponibilidade = true; 
 
     function __construct(string $titulo, string $autor, float $valor, int $numeroPagina, int $anoPublicacao, int $isbn){
         $this->titulo = $titulo; 
@@ -15,7 +16,7 @@ class Livros{
         $this->valor = $valor;
         $this->numeroPagina = $numeroPagina; 
         $this->anoPublicacao = $anoPublicacao; 
-        $this->isbn = $isbn; 
+        $this->isbn = $isbn;  
     }
 
     public function getTitulo(){
@@ -42,4 +43,15 @@ class Livros{
         return $this->isbn;
     }
     
+    public function getDisponibilidade(){
+        return $this->disponibilidade; 
+    }
+
+    public function emprestado(){
+        $this->disponibilidade = false; 
+    }
+
+    public function devolvido(){
+        $this->disponibilidade = true; 
+    }
 }
