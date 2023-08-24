@@ -30,7 +30,7 @@
     $mensagemDeErro = ' ';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (empty($_POST['nome']) && empty($_POST['dataNascimento']) && empty($_POST['email']) && empty($_POST['cpf']) &&  empty($_POST['celular'])) {
+        if (empty($_POST['nome']) || empty($_POST['dataNascimento']) || empty($_POST['email']) || empty($_POST['cpf']) ||  empty($_POST['celular'])) {
             $mensagemDeErro = 'Por favor, preencha todos os campos';
         } else {
             require '../objetos.php';
