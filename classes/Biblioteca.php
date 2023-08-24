@@ -1,27 +1,27 @@
 <?php
 class Biblioteca{
-    private $alunos= []; 
-    private $livros = [];
+    private $listaAlunos= []; 
+    private $listaLivros = [];
 
     public function __construct(Aluno $aluno, Livros $livro)
     {
-        $this->alunos = $aluno;
-        $this->livros = $livro;
+        $this->listaAlunos = $aluno;
+        $this->listaLivros = $livro;
     }
 
     public function getAluno(){
-        return $this->alunos;
+        return $this->listaAlunos;
     }
 
     public function getLivros(){
-        return $this->livros;
+        return $this->listaLivros;
     }
 
     public function adicionarAluno(Aluno $aluno){
-        $this->alunos[] = $aluno; 
+        $this->listaAlunos[] = $aluno;
     }
 
     public function adicionarLivro(Livros $livro){
-        $this->livros[] = $livro; 
+        $this->listaLivros[] = $livro; 
     }
 }
