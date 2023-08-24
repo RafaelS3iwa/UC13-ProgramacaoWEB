@@ -3,12 +3,6 @@ class Biblioteca{
     private $listaAlunos= []; 
     private $listaLivros = [];
 
-    // public function __construct(Aluno $aluno, Livros $livro)
-    // {
-    //     $this->listaAlunos = $aluno;
-    //     $this->listaLivros = $livro;
-    // }
-
     public function getAluno(){
         return $this->listaAlunos;
     }
