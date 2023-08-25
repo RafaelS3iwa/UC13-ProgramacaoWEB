@@ -10,7 +10,6 @@
 <body>
     <h1 class = "Texto">Alunos Cadastrados</h1>
     <h4 class = "Texto">Todos os Alunos cadastrados no nosso sistema</h4>
-    <?php require '../objetos.php'; ?>
     <table class = "tabela" border = "1">
         <thead>
             <th class = "tituloTabela" colspan="7">Alunos</th>
@@ -25,6 +24,7 @@
             </tr>
         </thead>
         <tbody>
+            <?php require '../objetos.php'; ?>
             <?php foreach($biblioteca->getAluno() as $aluno) : ?>
             <tr>
                 <td style="text-align: center;"><?=$aluno->getNome()?></td>
@@ -38,5 +38,16 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <?=$nome?><br>
+    <?=$email?><br>
+    <?=$cpf?><br>
+    <?=$dataNascimentol?><br>
+    <?=$telefone?><br>
+    <?=$celular?><br>
+        <form action="biblioteca.php" method="get">
+        <fieldset>
+            <button>Voltar</button>
+        </fieldset>    
+    </form> 
 </body>
 </html>

@@ -8,6 +8,11 @@
     <title>Cadastro de Aluno</title>
 
     <style>
+
+        .Titulo{
+            text-align: center;
+        }
+
         label,
         input {
             margin-bottom: 10px;
@@ -22,7 +27,7 @@
 </head>
 
 <body>
-    <h1>Cadastrar um Aluno</h1>
+    <h1 class="Titulo">Cadastrar um Aluno</h1>
     <form action="visualizarAlunos.php" method="post">
         <fieldset>
             <label for="nome">Nome:</label>
@@ -47,24 +52,24 @@
             <button onclick="history.back()">Cancelar</button>
 
             <!-- Código PHP -->
+            <?php require '../objetos.php'; ?>
             <?php if (isset($_POST["confirmar"])) : ?>
-                <?php
+           <?php 
                 $nome = $_POST['nome'];
                 $email = $_POST['email'];
                 $cpf = $_POST['cpf'];
                 $dataNascimento = $_POST['dataNascimento'];
                 $telefone = $_POST['telefone'];
-                $celular = $_POST['celular'];
+                $celular = $_POST['celular']; 
                 ?>
                 <?php if (empty($nome) || empty($email) || empty($cpf) || empty($dataNascimento) || empty($celular)) : ?>
                     <p>Por favor, preencha todos os campos</p>
                 <?php else : ?>
-                    <?php require '../objetos.php'; ?>
-                    <?php $aluno = new ALuno($nome, $dataNascimento, $email, $cpf, $telefone, $celular) ?>
+                    <?php $aluno = new Aluno($nome, $dataNascimento, $email, $cpf, $telefone, $celular) ?>
+                    <?php $aluno->preencherDadosDoPOST()?>
                     <?php $biblioteca = new Biblioteca ?>
-                    <?php $biblioteca->getAluno(); ?>
-                    <?php $biblioteca->adicionarAluno($aluno); ?>
-                    <p>O cadastro do aluno foi bem sucedido!</p>
+                    <?php $biblioteca->adicionarAluno($aluno); ?>          
+                    <p>O cadastro do aluno foi bem sucedido!</p>     
                 <?php endif; ?>
             <?php endif; ?>
             <!-- Final do código PHP -->

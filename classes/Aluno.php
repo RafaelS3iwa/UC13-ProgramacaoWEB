@@ -19,6 +19,15 @@ class Aluno {
         $this->celular = $celular; 
     }
     
+    public function preencherDadosDoPOST() {
+        $this->nome = $_POST['nome'];
+        $this->dataNascimento = $_POST['dataNascimento'];
+        $this->email = $_POST['email'];
+        $this->cpf = $_POST['cpf'];
+        $this->telefone = $_POST['telefone'];
+        $this->celular = $_POST['celular'];
+    }
+    
     public function getNome(){
         return $this->nome;
     }
@@ -30,7 +39,7 @@ class Aluno {
         return $this->email;
     }
     public function getCpf(){
-        return $this->cpf;
+        return $this->cpf;  
     }
     public function getTelefone(){
         return $this->telefone;
