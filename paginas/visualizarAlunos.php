@@ -10,7 +10,7 @@
 <body>
     <h1 class = "Texto">Alunos Cadastrados</h1>
     <h4 class = "Texto">Todos os Alunos cadastrados no nosso sistema</h4>
-    <?php require '../objetos.php'; ?> 
+    <?php require '../objetos.php'; ?>
     <table class = "tabela" border = "1">
         <thead>
             <th class = "tituloTabela" colspan="7">Alunos</th>

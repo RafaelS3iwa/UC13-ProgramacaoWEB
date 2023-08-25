@@ -23,57 +23,58 @@
 
 <body>
     <h1>Cadastrar um Aluno</h1>
-
-    <!-- Código PHP -->
-    <?php
-
-    $mensagemDeErro = ' ';
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (empty($_POST['nome']) || empty($_POST['dataNascimento']) || empty($_POST['email']) || empty($_POST['cpf']) ||  empty($_POST['celular'])) {
-            $mensagemDeErro = 'Por favor, preencha todos os campos';
-        } else {
-            require '../objetos.php';
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
-            $cpf = $_POST['cpf'];
-            $dataNascimento = $_POST['dataNascimento'];
-            $telefone = $_POST['telefone'];
-            $celular = $_POST['celular'];
-
-
-            $aluno = new Aluno($nome, $dataNascimento, $email, $cpf, $telefone, $celular);
-
-            echo '<p>O cadastro do aluno foi bem sucedido!</p>';
-        }
-    }
-    ?>
-<!-- Final do código PHP -->
-
-    <form action="cadastrarAluno.php" method="post">
+    <form action="visualizarAlunos.php" method="post">
         <fieldset>
             <label for="nome">Nome:</label>
             <input id="nome" name="nome" type="text"><br>
 
-            <label>Digite seu email</label>
+            <label for="email">Digite seu email</label>
             <input id="email" name="email" type="text" placeholder="modelo@exemplo.com"><br>
 
-            <label>Digite seu CPF</label>
+            <label for="cpf">Digite seu CPF</label>
             <input id="cpf" name="cpf" type="text" placeholder="000.000.000-00"> <br>
 
-            <label>Insira sua Data de Nascimento</label>
+            <label for="dataNascimento">Insira sua Data de Nascimento</label>
             <input id="dataNascimento" name="dataNascimento" type="date"><br>
 
-            <label>Digite seu Número de Telefone</label>
+            <label for="telefone">Digite seu Número de Telefone</label>
             <input id="telefone" name="telefone" type="text" placeholder="(00)0000-0000"><br>
 
-            <label>Digite seu Número de Celular</label>
+            <label for="celular">Digite seu Número de Celular</label>
             <input id="celular" name="celular" type="text" placeholder="(00)00000-0000"><br>
 
-            <br><button type="submit">Confirmar</button>
-            <button type="reset">Cancelar</button>
+            <br><button type="submit" name="confirmar">Confirmar</button>
+            <button onclick="history.back()">Cancelar</button>
+
+            <!-- Código PHP -->
+            <?php if (isset($_POST["confirmar"])) : ?>
+                <?php
+                $nome = $_POST['nome'];
+                $email = $_POST['email'];
+                $cpf = $_POST['cpf'];
+                $dataNascimento = $_POST['dataNascimento'];
+                $telefone = $_POST['telefone'];
+                $celular = $_POST['celular'];
+                ?>
+                <?php if (empty($nome) || empty($email) || empty($cpf) || empty($dataNascimento) || empty($celular)) : ?>
+                    <p>Por favor, preencha todos os campos</p>
+                <?php else : ?>
+                    <?php require '../objetos.php'; ?>
+                    <?php $aluno = new ALuno($nome, $dataNascimento, $email, $cpf, $telefone, $celular) ?>
+                    <?php $biblioteca = new Biblioteca ?>
+                    <?php $biblioteca->getAluno(); ?>
+                    <?php $biblioteca->adicionarAluno($aluno); ?>
+                    <p>O cadastro do aluno foi bem sucedido!</p>
+                <?php endif; ?>
+            <?php endif; ?>
+            <!-- Final do código PHP -->
         </fieldset>
     </form>
+    <form action="biblioteca.php" method="get">
+        <fieldset>
+            <button>Voltar</button>
+        </fieldset>    
+    </form> 
 </body>
 
 </html>

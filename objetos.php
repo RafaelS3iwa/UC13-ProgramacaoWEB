@@ -6,6 +6,7 @@ require_once 'classes/Livros.php';
 require_once 'classes/Emprestimo.php'; 
 require_once 'classes/Biblioteca.php'; 
 
+
 $aluno1 = new Aluno("Rafael", "2000-01-01", "rafa@teste.com", "14345678901", "12345678", "987654321");
 $aluno2 = new Aluno("João", "2000-01-01", "joao@teste.com", "12345678901", "12345678", "987654321");
 
@@ -18,11 +19,21 @@ $emprestimo->emprestimoPermitido();
 $emprestimo->realizarEmprestimo($aluno1, $livro1);
 $emprestimo->realizarEmprestimo($aluno1, $livro2);
 
+if (isset($_POST["confirmar"])){
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
+    $dataNascimento = $_POST['dataNascimento'];
+    $telefone = $_POST['telefone'];
+    $celular = $_POST['celular'];
+    
+    $aluno = new ALuno($nome, $dataNascimento, $email, $cpf, $telefone, $celular);
+    
+    $biblioteca = new Biblioteca();
+}
+$biblioteca->adicionarAluno($aluno);
 
 //$emprestimo->devolverLivro($aluno1, $livro1); 
-
-$biblioteca = new Biblioteca(); 
-
 $biblioteca->adicionarAluno($aluno1); 
 $biblioteca->adicionarAluno($aluno2); 
 $biblioteca->adicionarLivro($livro1); 
