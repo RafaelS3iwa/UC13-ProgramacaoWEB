@@ -25,6 +25,7 @@
         </thead>
         <tbody>
             <?php require '../objetos.php'; ?>
+            <?php ?>
             <?php foreach($biblioteca->getAluno() as $aluno) : ?>
             <tr>
                 <td style="text-align: center;"><?=$aluno->getNome()?></td>
@@ -44,10 +45,10 @@
     <?=$dataNascimentol?><br>
     <?=$telefone?><br>
     <?=$celular?><br>
-        <form action="biblioteca.php" method="get">
-        <fieldset>
-            <button>Voltar</button>
-        </fieldset>    
+    <form action="biblioteca.php" method="post">
+    <fieldset>
+        <button>Voltar</button>
+    </fieldset>    
     </form> 
 </body>
 </html>

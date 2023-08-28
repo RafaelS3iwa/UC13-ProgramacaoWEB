@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -53,7 +53,7 @@
 
             <!-- Código PHP -->
             <?php require '../objetos.php'; ?>
-            <?php if (isset($_POST["confirmar"])) : ?>
+            <?php if (isset($_POST['confirmar'] )) : ?>
            <?php 
                 $nome = $_POST['nome'];
                 $email = $_POST['email'];
@@ -64,18 +64,24 @@
                 ?>
                 <?php if (empty($nome) || empty($email) || empty($cpf) || empty($dataNascimento) || empty($celular)) : ?>
                     <p>Por favor, preencha todos os campos</p>
-                <?php else : ?>
-                    <?php $aluno = new Aluno($nome, $dataNascimento, $email, $cpf, $telefone, $celular) ?>
-                    <?php $aluno->preencherDadosDoPOST()?>
-                    <?php $biblioteca = new Biblioteca ?>
-                    <?php $biblioteca->adicionarAluno($aluno); ?>          
+                <?php else : ?>      
+                <?php
+                    $_SESSION['aluno'] = [
+                    'nome' => $nome,
+                    'dataNascimento' => $dataNascimento,
+                    'email' => $email,
+                    'cpf' => $cpf,
+                    'telefone' => $telefone,
+                    'celular' => $celular
+                    ];
+                ?>
                     <p>O cadastro do aluno foi bem sucedido!</p>     
                 <?php endif; ?>
             <?php endif; ?>
             <!-- Final do código PHP -->
         </fieldset>
     </form>
-    <form action="biblioteca.php" method="get">
+    <form action="biblioteca.php" method="post">
         <fieldset>
             <button>Voltar</button>
         </fieldset>    

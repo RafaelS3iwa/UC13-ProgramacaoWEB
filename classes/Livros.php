@@ -5,16 +5,16 @@ class Livros{
     private $titulo;
     private $autor;
     private $valor;
-    private $numeroPagina;
+    private $numeroPaginas;
     private $anoPublicacao;
     private $isbn; 
     private $disponibilidade = true; 
 
-    function __construct(string $titulo, string $autor, float $valor, int $numeroPagina, int $anoPublicacao, int $isbn){
+    function __construct(string $titulo, string $autor, float $valor, int $numeroPaginas, int $anoPublicacao, int $isbn){
         $this->titulo = $titulo; 
         $this->autor = $autor; 
         $this->valor = $valor;
-        $this->numeroPagina = $numeroPagina; 
+        $this->numeroPaginas = $numeroPaginas; 
         $this->anoPublicacao = $anoPublicacao; 
         $this->isbn = $isbn;  
     }
@@ -31,8 +31,8 @@ class Livros{
         return $this->valor;
     }
 
-    public function getNumeroPagina(){
-        return $this->numeroPagina;
+    public function getNumeroPaginas(){
+        return $this->numeroPaginas;
     }
 
     public function getAnoPublicacao(){
