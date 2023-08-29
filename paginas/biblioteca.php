@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Biblioteca</title>
+    <style>
+        form{
+            max-width: 650px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>Ve o bagulho aí</h1>
+    <h1 style="text-align: center;">Ve o bagulho aí</h1>
 
     <form action="visualizarLivros.php" method ="get"> 
         <fieldset>
