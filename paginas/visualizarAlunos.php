@@ -39,12 +39,6 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <?=$nome?><br>
-    <?=$email?><br>
-    <?=$cpf?><br>
-    <?=$dataNascimentol?><br>
-    <?=$telefone?><br>
-    <?=$celular?><br>
     <form action="biblioteca.php" method="post">
     <fieldset>
         <button>Voltar</button>

@@ -38,5 +38,10 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <form action="biblioteca.php" method="post">
+    <fieldset>
+        <button>Voltar</button>
+    </fieldset>    
+    </form> 
 </body>
 </html>
