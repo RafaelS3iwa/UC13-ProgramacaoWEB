@@ -28,7 +28,7 @@
 
 <body>
     <h1 class="Titulo">Cadastrar um Aluno</h1>
-    <form action="visualizarAlunos.php" method="post">
+    <form action="cadastrarAluno.php" method="post">
         <fieldset>
             <label for="nome">Nome:</label>
             <input id="nome" name="nome" type="text"><br>
@@ -48,12 +48,12 @@
             <label for="celular">Digite seu Número de Celular</label>
             <input id="celular" name="celular" type="text" placeholder="(00)00000-0000"><br>
 
-            <br><button type="submit" name="confirmar">Confirmar</button>
+            <br><button type="submit" name="cadastrarAluno" value="Confirmar">Confirmar</button>
             <button onclick="history.back()">Cancelar</button>
 
             <!-- Código PHP -->
             <?php require '../objetos.php'; ?>
-            <?php if (isset($_POST['confirmar'] )) : ?>
+            <?php if (isset($_POST['cadastrarAluno'] )) : ?>
            <?php 
                 $nome = $_POST['nome'];
                 $email = $_POST['email'];
@@ -63,7 +63,8 @@
                 $celular = $_POST['celular']; 
                 ?>
                 <?php if (empty($nome) || empty($email) || empty($cpf) || empty($dataNascimento) || empty($celular)) : ?>
-                    <p>Por favor, preencha todos os campos</p>
+                    <?php header("Location: cadastrarAluno.php")?>
+
                 <?php else : ?>      
                 <?php
                     $_SESSION['aluno'] = [
@@ -74,8 +75,9 @@
                     'telefone' => $telefone,
                     'celular' => $celular
                     ];
-                ?>
-                    <p>O cadastro do aluno foi bem sucedido!</p>     
+                ?>  
+                    <?php header("Location: visualizarAlunos.php"); ?>
+                    <?php exit();?>
                 <?php endif; ?>
             <?php endif; ?>
             <!-- Final do código PHP -->

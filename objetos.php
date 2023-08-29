@@ -18,26 +18,40 @@ $emprestimo->emprestimoPermitido();
 $emprestimo->realizarEmprestimo($aluno1, $livro1);
 $emprestimo->realizarEmprestimo($aluno1, $livro2);
 
-$biblioteca = new Biblioteca(); 
-
-$alunoCadastrado = $_SESSION['aluno'] ?? null;
-
-if($alunoCadastrado){
-     $aluno = new Aluno(
-          $alunoCadastrado['nome'],
-          $alunoCadastrado['dataNascimento'],
-          $alunoCadastrado['email'],
-          $alunoCadastrado['cpf'],
-          $alunoCadastrado['telefone'],
-          $alunoCadastrado['celular']
-          );
-
-     $biblioteca->cadastrarAluno($aluno); 
-     $biblioteca->adicionarAluno($aluno);
+if (!isset($_SESSION['biblioteca'])) {
+    $_SESSION['biblioteca'] = new Biblioteca();
 }
 
+$biblioteca = $_SESSION['biblioteca'];
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrarAluno'])){
+    header("Location: visualizarAlunos.php");
+    $aluno = new Aluno(
+        $_POST['nome'],
+        $_POST['dataNascimento'],
+        $_POST['email'],
+        $_POST['cpf'],
+        $_POST['telefone'],
+        $_POST['celular']
+        );
+
+    $biblioteca->adicionarAluno($aluno);
+}
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrarLivro'])){
+    header("Location: visualizarLivros.php");
+    $livro = new Livros(
+        $_POST['titulo'],
+        $_POST['autor'],
+        $_POST['valor'],
+        $_POST['numeroPaginas'],
+        $_POST['anoPublicacao'],
+        $_POST['isbn']
+        );
+
+    $biblioteca->adicionarLivro($livro);
+}
+
+//session_destroy();
+
 //$emprestimo->devolverLivro($aluno1, $livro1); 
-$biblioteca->adicionarAluno($aluno1);   
-$biblioteca->adicionarAluno($aluno2); 
-$biblioteca->adicionarLivro($livro1); 
-$biblioteca->adicionarLivro($livro2); 

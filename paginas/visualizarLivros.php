@@ -29,7 +29,7 @@
             <tr>
                 <td style="text-align: center;"><?=$livro->getTitulo()?></td>
                 <td style="text-align: center;"><?=$livro->getAutor()?></td>
-                <td style="text-align: center;"><?=$livro->getNumeroPagina()?></td>
+                <td style="text-align: center;"><?=$livro->getNumeroPaginas()?></td>
                 <td style="text-align: center;"><?=$livro->getAnoPublicacao()?></td>
                 <td style="text-align: center;"><?='R$'.$livro->getValor()?></td>
                 <td style="text-align: center;"><?=$livro->getISBN()?></td>
