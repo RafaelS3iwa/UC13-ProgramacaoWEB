@@ -83,7 +83,7 @@
             <!-- Final do código PHP -->
         </fieldset>
     </form>
-    <form action="biblioteca.php" method="post">
+    <form action="index.php" method="post">
         <fieldset>
             <button>Voltar</button>
         </fieldset>    
