@@ -30,6 +30,13 @@
         </fieldset><br>
     </form>
 
+    <form action="visualizarUsuarios.php" method ="get"> 
+        <fieldset>
+            <h4>Aqui você poderá visualizar todos os usuários cadastrados no sistema</h4>
+            <button type="submit">Visualizar Usuário</button>
+        </fieldset><br>
+    </form>
+
     <form action="cadastrarLivro.php" method ="get"> 
         <fieldset>
             <h4>Clique aqui para cadastrar um livro ;)</h4>
@@ -41,6 +48,13 @@
         <fieldset>
             <h4>Clique aqui se deseja cadastrar um Aluno ;)</h4>
             <button type="submit">Cadastrar Aluno</button>
+        </fieldset><br>
+    </form>
+
+    <form action="cadastrarUsuario.php" method ="get"> 
+        <fieldset>
+            <h4>Clique aqui se deseja cadastrar um Usuário ;)</h4>
+            <button type="submit">Cadastrar Usuário</button>
         </fieldset><br>
     </form>
 

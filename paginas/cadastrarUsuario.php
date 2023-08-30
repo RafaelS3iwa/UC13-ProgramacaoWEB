@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empréstimo</title>
+    <title>Cadastro de Aluno</title>
 
     <style>
 
@@ -27,14 +27,14 @@
 </head>
 
 <body>
-    <h1 class="Titulo">Realizar um Empréstimo</h1>
+    <h1 class="Titulo">Cadastrar um Usuario</h1>
     <form action="cadastrarUsuario.php" method="post">
         <fieldset>
-            <label for="nome_aluno">Nome do Aluno:</label>
-            <input id="nome_aluno" name="nome_aluno" type="text"><br>
+            <label for="nome">Nome:</label>
+            <input id="nome" name="nome" type="text"><br>
 
-            <label for="titulo_livro">Título do Livro: </label>
-            <input id="titulo_livro" name="titulo_livro" type="text" placeholder="modelo@exemplo.com"><br>
+            <label for="email">Digite seu E-mail: </label>
+            <input id="email" name="email" type="text" placeholder="modelo@exemplo.com"><br>
        
             <label for="senha">Digite sua Senha: </label>
             <input id="senha" name="senha" type="text"><br>

@@ -1,7 +1,8 @@
-<?php 
+<?php
 require_once 'classes/Aluno.php';
 require_once 'classes/Livros.php'; 
 require_once 'classes/Emprestimo.php'; 
+require_once 'classes/Usuario.php'; 
 require_once 'classes/Biblioteca.php'; 
 
 session_start();
@@ -50,6 +51,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrarLivro'])){
         );
 
     $biblioteca->adicionarLivro($livro);
+}
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrarUsuario'])){
+    header("Location: visualizarUsuarios.php");
+    $usuario = new Usuario(
+        $_POST['nome'],
+        $_POST['email'],
+        $_POST['senha'], 
+        $_POST['perfil']
+        );
+
+    $biblioteca->adicionarUsuario($usuario);
 }
 
 //session_destroy();
