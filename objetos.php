@@ -65,6 +65,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrarUsuario'])){
     $biblioteca->adicionarUsuario($usuario);
 }
 
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['realizarEmprestimo'])){
+    header("Location: realizarEmprestimo.php");
+    $emprestimo = $_SESSION['emprestimo']; 
+
+}
+
 //session_destroy();
 
 //$emprestimo->devolverLivro($aluno1, $livro1); 

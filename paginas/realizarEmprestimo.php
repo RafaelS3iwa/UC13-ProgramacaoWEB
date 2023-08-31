@@ -28,46 +28,48 @@
 
 <body>
     <h1 class="Titulo">Realizar um Empréstimo</h1>
-    <form action="cadastrarUsuario.php" method="post">
+    <form action="realizarEmprestimo.php" method="post">
         <fieldset>
-            <label for="nome_aluno">Nome do Aluno:</label>
+            <label for="nome_aluno">Nome do Aluno: </label>
             <input id="nome_aluno" name="nome_aluno" type="text"><br>
 
+            <label for="cpf_aluno">CPF do Aluno: </label>
+            <input id="cpf_aluno" name="cpf_aluno" type="text"><br>
+
             <label for="titulo_livro">Título do Livro: </label>
-            <input id="titulo_livro" name="titulo_livro" type="text" placeholder="modelo@exemplo.com"><br>
-       
-            <label for="senha">Digite sua Senha: </label>
-            <input id="senha" name="senha" type="text"><br>
-    
-            <label for="perfil">Digite o tipo de perfil: </label>
-            <input id="perfil" name="perfil" type="text"><br>
+            <input id="titulo_livro" name="titulo_livro" type="text"><br>
 
+            <label for="autor_livro">Autor do Livro: </label>
+            <input id="autor_livro" name="autor_livro" type="text"><br>
 
-            <br><button type="submit" name="cadastrarUsuario" value="CadastrarUsuario">Confirmar</button>
+            <br><button type="submit" name="realizarEmprestimo" value="RealizarEmprestimo">Confirmar</button>
             <button onclick="history.back()">Cancelar</button>
 
             <!-- Código PHP -->
             <?php require '../objetos.php'; ?>
-            <?php if (isset($_POST['cadastrarUsuario'] )) : ?>
+            <?php if (isset($_POST['realizarEmprestimo'] )) : ?>
            <?php 
-                $nome = $_POST['nome'];
-                $email = $_POST['email'];
-                $senha = $_POST['senha']; 
-                $perfil = $_POST['perfil']; 
+                $nome = $_POST['nome_aluno'];
+                $cpf = $_POST['cpf_aluno'];
+                $titulo = $_POST['titulo_livro']; 
+                $autor = $_POST['autor_livro']; 
                 ?>
-                <?php if (empty($nome) || empty($email) || empty($senha) || empty($perfil)) : ?>
-                    <?php header("Location: cadastrarUsuario.php")?>
+                <?php if (empty($nome) || empty($cpf) || empty($titulo) || empty($autor)) : ?>
+                    <?php header("Location: realizarEmprestimo.php")?>
 
                 <?php else : ?>      
                 <?php
-                    $_SESSION['usuario'] = [
-                    'nome' => $nome,
-                    'email' => $email,
-                    'senha' => $senha, 
-                    'perfil' => $perfil
+                    $_SESSION['emprestimo'] = [
+                    'nome_aluno' => $nome,
+                    'cpf_aluno' => $cpf,
+                    'titulo_livro' => $titulo, 
+                    'autor_livro' => $autor
                     ];
+                ?>
+                <?php 
+
                 ?>  
-                    <?php header("Location: visualizarUsuarios.php"); ?>
+                    <?php header("Location: realizarEmprestimo.php"); ?>
                     <?php exit();?>
                 <?php endif; ?>
             <?php endif; ?>
