@@ -30,17 +30,17 @@
     <h1 class="Titulo">Realizar um Empréstimo</h1>
     <form action="realizarEmprestimo.php" method="post">
         <fieldset>
-            <label for="nome_aluno">Nome do Aluno: </label>
-            <input id="nome_aluno" name="nome_aluno" type="text"><br>
+            <label for="nomeAluno">Nome do Aluno: </label>
+            <input id="nomeAluno" name="nomeAluno" type="text"><br>
 
-            <label for="cpf_aluno">CPF do Aluno: </label>
-            <input id="cpf_aluno" name="cpf_aluno" type="text"><br>
+            <label for="cpfAluno">CPF do Aluno: </label>
+            <input id="cpfAluno" name="cpfAluno" type="text"><br>
 
-            <label for="titulo_livro">Título do Livro: </label>
-            <input id="titulo_livro" name="titulo_livro" type="text"><br>
+            <label for="tituloLivro">Título do Livro: </label>
+            <input id="tituloLivro" name="tituloLivro" type="text"><br>
 
-            <label for="autor_livro">Autor do Livro: </label>
-            <input id="autor_livro" name="autor_livro" type="text"><br>
+            <label for="autorLivro">Autor do Livro: </label>
+            <input id="autorLivro" name="autorLivro" type="text"><br>
 
             <br><button type="submit" name="realizarEmprestimo" value="RealizarEmprestimo">Confirmar</button>
             <button onclick="history.back()">Cancelar</button>
@@ -49,22 +49,18 @@
             <?php require '../objetos.php'; ?>
             <?php if (isset($_POST['realizarEmprestimo'] )) : ?>
            <?php 
-                $nome = $_POST['nome_aluno'];
-                $cpf = $_POST['cpf_aluno'];
-                $titulo = $_POST['titulo_livro']; 
-                $autor = $_POST['autor_livro']; 
+                $nome = $_POST['nomeAluno'];
+                $cpf = $_POST['cpfAluno'];
+                $titulo = $_POST['tituloLivro']; 
+                $autor = $_POST['autorLivro']; 
                 ?>
                 <?php if (empty($nome) || empty($cpf) || empty($titulo) || empty($autor)) : ?>
                     <?php header("Location: realizarEmprestimo.php")?>
 
                 <?php else : ?>      
                 <?php
-                    $_SESSION['emprestimo'] = [
-                    'nome_aluno' => $nome,
-                    'cpf_aluno' => $cpf,
-                    'titulo_livro' => $titulo, 
-                    'autor_livro' => $autor
-                    ];
+
+
                 ?>
                 <?php 
 

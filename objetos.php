@@ -67,7 +67,31 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrarUsuario'])){
 
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['realizarEmprestimo'])){
     header("Location: realizarEmprestimo.php");
-    $emprestimo = $_SESSION['emprestimo']; 
+    
+    $nomeAluno = $_POST['nomeAluno']; 
+    $cpfAluno = $_POST['cpfAluno'];
+    $tituloLivro = $_POST['tituloLivro']; 
+    $autorLivro = $_POST['autorLivro']; 
+
+    $alunoEncontrado = false; 
+    $livroEncontrado = false; 
+
+    foreach($biblioteca->getAluno() as $aluno){
+        if($aluno->getNome() === $nomeAluno && $aluno->getCPF() === $cpfAluno);
+        $alunoEncontrado = true; 
+        break; 
+    }
+
+    foreach($biblioteca->getLivros() as $livro){
+        if($livro->getTitulo() === $tituloLivro && $livro->getAutor() === $autorLivro){
+            $livroEncontrado = true; 
+            break;
+        }
+    }
+
+    if($livroEncontrado = true && $alunoEncontrado = true){
+        
+    }
 
 }
 
