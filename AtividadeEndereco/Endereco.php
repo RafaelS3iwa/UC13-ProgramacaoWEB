@@ -1,12 +1,12 @@
 <?php 
 class Endereco{
     
-    public $cep; 
-    public $logradouro;
-    public $bairro;
-    public $localidade;
-    public $uf;
-    public $dadosEndereco; 
+    private $cep; 
+    private $logradouro;
+    private $bairro;
+    private $localidade;
+    private $uf;
+    private $dadosEndereco; 
 
     public function getCep(){
         return $this->cep; 
@@ -31,5 +31,12 @@ class Endereco{
         echo '<p><b>Bairro: </b>' .$this->dadosEndereco['bairro'] . '</p>'; 
         echo '<p><b>Cidade: </b>' .$this->dadosEndereco['localidade'] .'</p>'; 
         echo '<p><b>Estado: </b>' .$this->dadosEndereco['uf'] . '</p>'; 
+    }
+
+    public function imprimirEnderecoArray($cep){
+        $this->dadosEndereco = $this->buscarEndereco($cep);
+        
+        echo '<h1><b>Endereço Completo</b></h1>';
+        var_dump($this->dadosEndereco); 
     }
 }
