@@ -22,6 +22,11 @@ class Endereco{
          return $dadosEndereco; 
     }
 
+    public function getBairro($cep){
+        $this->dadosEndereco = $this->buscarEndereco($cep); 
+        $bairro = $this->dadosEndereco['bairro']; 
+        return $this->bairro;
+    }
     public function imprimirEndereco($cep){
         $this->dadosEndereco = $this->buscarEndereco($cep); 
 
